@@ -10,11 +10,17 @@ public class FilmeController : ControllerBase
 
     private static List<Filme> filmes = new List<Filme>();
 
-    [HttpPost]
+    [HttpPost] // Realiza a inserção de um recurso no sistema
     public void AdicionarFilme([FromBody] Filme filme)
     {
             filmes.Add(filme);
             Console.WriteLine(filme.Titulo);
             Console.WriteLine(filme.Duracao);
+    }
+
+    [HttpGet] // Realiza a leitura de um recurso no sistema
+    public IEnumerable<Filme> RecuperarFilmes()
+    {
+        return filmes;
     }
 }
