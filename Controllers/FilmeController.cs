@@ -21,9 +21,9 @@ public class FilmeController : ControllerBase
     }
 
     [HttpGet] // Realiza a leitura de um recurso no sistema
-    public IEnumerable<Filme> RecuperarFilmes()
+    public IEnumerable<Filme> RecuperarFilmes([FromQuery]int skip = 0, [FromQuery]int take = 50)
     {
-        return filmes;
+        return filmes.Skip(skip).Take(take);
     }
 
     [HttpGet("{id}")]
