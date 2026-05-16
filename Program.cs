@@ -1,5 +1,7 @@
 using FilmesApi.Data;
 using Microsoft.EntityFrameworkCore;
+using System;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 // Realizada a aunteticação do Banco
@@ -7,8 +9,8 @@ var connectionString = builder.Configuration.GetConnectionString
     ("FilmeConnection");
 
 builder.Services.AddDbContext<FilmeContext>(opts =>
-    opts.UseMySql(connectionString, ServerVersion.AutoDetect
-        (connectionString)));
+    opts.UseMySql(connectionString, new MySqlServerVersion
+    (new Version(8, 0, 27))));
 
 // Add services to the container.
 

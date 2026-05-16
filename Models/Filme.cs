@@ -7,7 +7,11 @@ namespace FilmesApi.Models
 
         public int Id { get; set; }
 
-        [Required(ErrorMessage ="O título do filme é obrigatório")]
+        [Required(ErrorMessage ="O título do filme é obrigatório")] // O atributo [Required] indica que a propriedade
+                                                                    // Titulo é obrigatória
+                                                                    // e não pode ser nula ou vazia.
+                                                                    // O parâmetro ErrorMessage especifica a mensagem de erro
+                                                                    // ersonalizada que será exibida se a validação falhar.
         public string Titulo { get; set; }
 
         [Required(ErrorMessage = "O gênero do filme é obrigatório")]
